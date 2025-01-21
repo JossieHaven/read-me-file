@@ -75,10 +75,9 @@ function writeToFile(input) {
 ##Description
 ${input.description}
 
-##Table of Contents
+##Table of Contents //Table of contents with clickable links
 ${input.table}
-// WHEN I click on the links in the Table of Contents
--[Description](#description)
+-[Description](#description) 
 -[Installation](#installation)
 -[Usage](#usage)
 -[License](#license)
