@@ -1,8 +1,8 @@
 // TODO: Include packages needed for this application
 import fs from 'fs';
-const inquirer = require("inquirer");
-const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown.js");
+import inquirer from 'inquirer';
+import path from 'path';
+import generateMarkdown from "./utils/generateMarkdown.js";
 
 // TODO: Create an array of questions for user input
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
@@ -16,11 +16,6 @@ const questions = [
       type: "input",
       name: "description",
       message: "Please provide a description of your project.",
-    },
-    {
-      type: "input",
-      name: "table",
-      message: "Please add a table of contents for your project.",
     },
     {
       type: "input",
@@ -76,43 +71,10 @@ function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data)
 }
 
-
-function writeFile(input) {
-    const readMeFile = `# ${input.title}
-##Description
-${input.description}
-
-##Table of Contents //Table of contents with clickable links
-${input.table}
--[Description](#description) 
--[Installation](#installation)
--[Usage](#usage)
--[License](#license)
--[Contributing](#contributing)
--[Testing](#testing)
--[Questions](#questions)
-
-##Installation
-${input.installation}
-##Usage
-${input.usage}
-##License
-${input.license}
-##Contributing
-${input.contributing}
-##Tests
-${input.tests}
-##Questions
-For questions about this project, please contact me at ${input.questions} or visit my GitHub profile at [${input.github}]`;
-
-console.log(readMeFile);
-
-}
-
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((response) => {
-    console.log("We're working on it...");
+    console.log("We're working on it! Sit tight while ReadME File is being created!");
     writeToFile("./result/README.md", generateMarkdown({...response}));
     });
 }
